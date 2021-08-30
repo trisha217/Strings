@@ -6,12 +6,12 @@ class Solution {
         boolean f1 = false;
         boolean f2 = false;
         HashMap<Character,Integer> map = new HashMap<>();
-        while(true)
+        while(j<s.length()-1 || i<s.length()-1)
         {
             //acquire
             while(i<s.length()-1)
             {
-                f1 = true;
+            
                 i++;
                 char ch = s.charAt(i);
                 map.put(ch, map.getOrDefault(ch,0)+1);
@@ -32,7 +32,7 @@ class Solution {
             //release
             while(j<i)
             {
-                f2 = true;
+            
                 j++;
                 char ch = s.charAt(j);
                 map.put(ch, map.get(ch)-1);
@@ -41,11 +41,7 @@ class Solution {
                     break;
                 }
             }
-            
-            if(f1 == false && f2 == false)
-            {
-                break;
-            }
+           
         }
         
         return ans;
